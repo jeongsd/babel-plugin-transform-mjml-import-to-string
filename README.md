@@ -1,30 +1,72 @@
 # babel-plugin-transform-mjml-import-to-string
 MJML imports to strings
 
+
+```html
+<!-- example.mjml -->
+<mjml>
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-text font-size="40">
+            Hello world
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>
+```
+
+
+```js
+// example.js
+import mjml from './example.mjml';
+console.log(mjml);
+// '<mjml>
+//   <mj-body>
+//     <mj-container>
+//       <mj-section>
+//         <mj-column>
+//           <mj-text font-size="40">
+//             Hello world
+//           </mj-text>
+//         </mj-column>
+//       </mj-section>
+//     </mj-container>
+//   </mj-body>
+// </mjml>'
+```
+
 ## Installation
 
-TODO: Describe the installation process
+```sh
+$ npm install babel-plugin-transform-mjml-import-to-string
+```
 
 ## Usage
 
-TODO: Write usage instructions
+### Via `.babelrc` (Recommended)
 
-## Contributing
+**.babelrc**
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+```json
+{
+  "plugins": ["transform-mjml-import-to-string"]
+}
+```
 
-## History
+### Via CLI
 
-TODO: Write history
+```sh
+$ babel --plugins transform-mjml-import-to-string index.js
+```
 
-## Credits
+### Via Node API
 
-TODO: Write credits
-
-## License
-
-TODO: Write license
+```javascript
+require("babel-core").transform("code", {
+  plugins: ["transform-mjml-import-to-string"]
+});
+```
