@@ -16,12 +16,12 @@ export default function ({ types: t }) {
             const dir = p.dirname(p.resolve(state.file.opts.filename));
             const absolutePath = p.resolve(dir, node.source.value);
 
-            const html = fs.readFileSync(absolutePath, "utf8");
+            const mjml = fs.readFileSync(absolutePath, "utf8");
 
             path.replaceWith(t.variableDeclaration("var", [
               t.variableDeclarator(
                 t.identifier(node.specifiers[0].local.name),
-                t.stringLiteral(html)
+                t.stringLiteral(mjml)
               )
             ]));
           }
